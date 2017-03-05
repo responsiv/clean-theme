@@ -1,0 +1,129 @@
+//
+// Layouts
+//
+// Styles specific to different page layouts.
+//
+
+body {
+    background: #f0f0f0;
+    color: rgba(51, 51, 51, 0.7);
+}
+
+.site-name {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+
+    a {
+        color: #333;
+        text-decoration: none;
+        &:hover {
+            color: rgba(51, 51, 51, 0.7);
+        }
+    }
+}
+
+.site-motto {
+    font-size: 1.2em;
+    margin: .5em 0 0;
+}
+
+#layout-sidebar {
+    font-size: 1rem;
+    background: #fff;
+    border-right: 1px solid rgba(51, 51, 51, 0.1);
+    width: 30%;
+    max-width: 413px;
+    position: fixed;
+    left: 0;
+    height: 100%;
+
+    .sidebar-segment {
+        margin: 20% 0;
+        padding: 0 20%;
+    }
+
+    .segment-title {
+        margin: 0 0 1.5em;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-size: 1.2em;
+        font-weight: 700;
+    }
+
+    .segment-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.5em 0;
+
+        li {
+            font-size: 1.2em;
+            padding: 0.5em 0;
+            margin: 0;
+            border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+            &:hover {
+                color: rgba(51, 51, 51, 0.7);
+            }
+        }
+    }
+}
+
+#layout-content {
+    margin-left: 30%;
+    width: 70%;
+    padding: 5% 0;
+
+    > article {
+        background: #fff;
+        margin: 0 8%;
+        border: 1px solid rgba(51, 51, 51, 0.1);
+
+        header, footer {
+            padding: 8% 10% 0;
+        }
+
+        .post-content {
+            padding: 0 10% 5%;
+        }
+
+        header > h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin: 0 0 1.2em;
+        }
+
+        footer {
+            font-size: 1.4rem;
+            background: #f7f7f7;
+            padding: 5% 10%;
+            a {
+                color: rgba(51, 51, 51, 0.7);
+                &:hover {
+                    color: #333;
+                }
+            }
+            > span {
+                margin-right: 1em;
+                > i { margin-right: .2em; }
+            }
+        }
+    }
+}
+
+#layout-footer {
+    margin-left: 30%;
+    width: 70%;
+
+    .footer-inner {
+        margin: 0 8%;
+        padding: 5% 10%;
+        background: #fff;
+        border: 1px solid rgba(51, 51, 51, 0.1);
+    }
+}

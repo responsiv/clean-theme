@@ -1,0 +1,6 @@
+name: Clean
+description: 'Clean blogger theme.'
+author: 'Responsiv Internet'
+homepage: 'http://responsiv.com'
+code: Clean
+form: theme_fields.yaml

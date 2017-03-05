@@ -1,0 +1,30 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'site/meta' %}
+    </head>
+    <body>
+
+        <div style="max-width: 1403px; margin: 0 auto">
+            <!-- Sidebar -->
+            <section id="layout-sidebar">
+                {% partial 'site/sidebar' %}
+            </section>
+
+            <!-- Content -->
+            <section id="layout-content">
+                {% page %}
+            </section>
+
+            <!-- Footer -->
+            <footer id="layout-footer">
+                {% partial 'site/footer' %}
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+        {% partial 'site/scripts' %}
+    </body>
+</html>
