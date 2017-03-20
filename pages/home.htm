@@ -1,26 +1,24 @@
 title = "Demonstration"
 url = "/"
 layout = "default"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = "10"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+[resources]
+less[] = "pages/home.less"
+js[] = "../vendor/isotope/jquery.isotope.js"
+js[] = "pages/home.js"
 ==
-<article>
-    <header>
-        <h1>{{ post.title }}</h1>
-    </header>
 
-    <div class="post-content">
-        {{ post.content_html|raw }}
-    </div>
-
-    <footer>
-        <span class="published"><i class="icon icon-calendar"></i> {{ post.published_at|date('M d, Y') }}</span>
-        <span class="author"><i class="icon icon-user"></i> {{ post.author.full_name }}</span>
-        {% if post.categories.count %} in
-            <span class="category">
-                <i class="icon icon-folder-open"></i>
-                {% for category in post.categories %}
-                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
-                {% endfor %}
-            </span>
-        {% endif %}
-    </footer>
-</article>
+<div class="post-list home-posts" id="homePosts">
+    {% for post in posts %}
+        <div class="home-post">
+            {% partial 'blog/post' post=post %}
+        </div>
+    {% endfor %}
+</div>

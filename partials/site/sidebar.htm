@@ -1,3 +1,9 @@
+[blogPosts]
+postsPerPage = "5"
+categoryPage = "blog/category"
+postPage = "blog/post"
+sortOrder = "published_at desc"
+==
 <div class="sidebar-segment">
 
     <h1 class="site-name">
@@ -9,19 +15,19 @@
 </div>
 
 <div class="sidebar-segment">
-    <h2 class="segment-title">Follow me</h2>
+    <h2 class="segment-title">Recent posts</h2>
     <ul class="segment-list">
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">RSS Feed</a></li>
+        {% for post in blogPosts.posts %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
     </ul>
 </div>
 
 <div class="sidebar-segment">
-    <h2 class="segment-title">Recent posts</h2>
+    <h2 class="segment-title">Follow me</h2>
     <ul class="segment-list">
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">RSS Feed</a></li>
+        <li><a href="https://twitter.com">Twitter</a></li>
+        <li><a href="https://facebook.com">Facebook</a></li>
+        <li><a href="{{ 'blog/rss'|page }}">RSS Feed</a></li>
     </ul>
 </div>

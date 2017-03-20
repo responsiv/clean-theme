@@ -7,6 +7,9 @@ hidden = "0"
 [blogPost]
 slug = "{{ :slug }}"
 categoryPage = "blog/category"
+
+[resources]
+less[] = "pages/blog.less"
 ==
 <?php
 function onEnd()
@@ -15,4 +18,48 @@ function onEnd()
 }
 ?>
 ==
-{% component 'blogPost' %}
+{% set image = post.featured_images.first %}
+{% set nextPost = blogPost.nextPost %}
+{% set lastPost = blogPost.previousPost %}
+
+<div class="post-single">
+    <article>
+        <div class="post-image">
+            <img src="{{ image.path }}" alt="{{ post.title }}" />
+        </div>
+        <header class="post-title">
+            <h1>{{ post.title }}</h1>
+        </header>
+
+        <div class="post-content">
+            {{ post.content_html|raw }}
+        </div>
+
+        <footer>
+            <span class="published"><i class="icon icon-calendar"></i> {{ post.published_at|date('M d, Y') }}</span>
+            {# <span class="author"><i class="icon icon-user"></i> {{ post.author.full_name }}</span> #}
+            {% if post.categories.count %} in
+                <span class="category">
+                    <i class="icon icon-folder-open"></i>
+                    {% for category in post.categories %}
+                        <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </span>
+            {% endif %}
+        </footer>
+    </article>
+    <nav class="post-links">
+        {% if lastPost %}
+            <a href="{{ lastPost.url }}" class="link-previous">
+                <p>Previous</p>
+                <span>{{ lastPost.title }}</span>
+            </a>
+        {% endif %}
+        {% if nextPost %}
+            <a href="{{ nextPost.url }}" class="link-next">
+                <p>Next</p>
+                <span>{{ nextPost.title }}</span>
+            </a>
+        {% endif %}
+    </nav>
+</div>

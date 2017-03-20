@@ -17,12 +17,15 @@ postPage = "blog/post"
 slug = "{{ :slug }}"
 displayEmpty = "0"
 categoryPage = "blog/category"
+
+[resources]
+less[] = "pages/blog.less"
 ==
-<div class="row">
-    <div class="col-md-8">
-        {% partial 'blog/posts' %}
-    </div>
-    <div class="col-md-4">
-        {% partial 'blog/categories' %}
-    </div>
+
+<div class="category-title">
+    <h1>Category: {{ category.name }}</h1>
+</div>
+
+<div class="blog-posts">
+    {% partial 'blog/posts' %}
 </div>
