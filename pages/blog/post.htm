@@ -14,7 +14,9 @@ less[] = "pages/blog.less"
 <?php
 function onEnd()
 {
-    $this->page->title = $this->post->title;
+    if ($this->post) {
+        $this->page->title = $this->post->title;
+    }
 }
 ?>
 ==
@@ -24,9 +26,11 @@ function onEnd()
 
 <div class="post-single">
     <article>
-        <div class="post-image">
-            <img src="{{ image.path }}" alt="{{ post.title }}" />
-        </div>
+        {% if image %}
+            <div class="post-image">
+                <img src="{{ image.path }}" alt="{{ post.title }}" />
+            </div>
+        {% endif %}
         <header class="post-title">
             <h1>{{ post.title }}</h1>
         </header>
