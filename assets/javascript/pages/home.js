@@ -1,14 +1,11 @@
 $(document).ready(function(){
 
-    $('#homePosts').isotope({
+    var $posts = $('#homePosts')
+
+    $posts.isotope({
         itemSelector: '.home-post',
+    }).imagesLoaded().progress( function() {
+        $posts.isotope('layout');
     })
 
-});
-
-// This is an attempt to get isotope to redraw after all the
-// images on the page have finished loading.
-
-$(window).load(function() {
-    $(window).trigger('resize')
 });
