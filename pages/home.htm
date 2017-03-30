@@ -11,15 +11,30 @@ postPage = "blog/post"
 
 [resources]
 less[] = "pages/home.less"
+js[] = "controls/auto-pager.js"
 js[] = "../vendor/isotope/imagesloaded.js"
 js[] = "../vendor/isotope/isotope.js"
 js[] = "pages/home.js"
 ==
-
-<div class="post-list home-posts" id="homePosts">
-    {% for post in posts %}
-        <div class="home-post">
-            {% partial 'blog/post' post=post %}
-        </div>
-    {% endfor %}
+<?
+public function onPagePosts()
+{
+    $this->blogPosts->setProperty('pageNumber', post('page'));
+    $this->pageCycle();
+}
+?>
+==
+<div
+    id="homePosts"
+    class="post-list home-posts">
+    {% partial 'home/posts' %}
+</div>
+<div
+    class="text-center"
+    data-control="auto-pager"
+    data-request="onPagePosts"
+    data-request-update="'home/posts': '@#homePosts'"
+    data-current-page="1"
+    data-last-page="{{ posts.lastPage }}">
+    <a class="text-muted oc-loading">Fetching posts..</a>
 </div>
