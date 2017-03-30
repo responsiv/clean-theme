@@ -1,6 +1,7 @@
 
 function initIsotope() {
-    var $posts = $('#homePosts')
+    var $posts = $('#homePosts'),
+        scrollTop = $(window).scrollTop()
 
     if ($posts.data('isotope')) {
         $posts.isotope('destroy')
@@ -11,6 +12,8 @@ function initIsotope() {
     }).imagesLoaded().progress(function() {
         $posts.isotope('layout');
     })
+
+    $(window).scrollTop(scrollTop)
 }
 
 $(document).render(initIsotope)
