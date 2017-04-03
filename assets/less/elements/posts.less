@@ -73,3 +73,36 @@
         }
     }
 }
+
+.post-pagination {
+    margin: 0 8%;
+    background: #fff;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    line-height: 0;
+    text-align: center;
+    position: relative;
+
+    .pagination-prev {
+        position: absolute;
+        left: 5px;
+    }
+
+    .pagination-next {
+        position: absolute;
+        right: 5px;
+    }
+
+    ul.pagination {
+        display: inline-block;
+        margin: 5px 100px;
+        a {
+            border-radius: 0;
+            border: none;
+            color: #333;
+        }
+        li.active a {
+            background: #333;
+            color: #fff;
+        }
+    }
+}
