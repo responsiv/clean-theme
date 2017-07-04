@@ -30,8 +30,12 @@ sortOrder = "published_at desc"
 <div class="sidebar-segment">
     <h2 class="segment-title">Follow me</h2>
     <ul class="segment-list">
-        <li><a href="https://twitter.com">Twitter</a></li>
-        <li><a href="https://facebook.com">Facebook</a></li>
+        {% if this.theme.twitter_url %}
+            <li><a href="{{ this.theme.twitter_url }}" target="_blank">Twitter</a></li>
+        {% endif %}
+        {% if this.theme.facebook_url %}
+            <li><a href="{{ this.theme.facebook_url }}" target="_blank">Facebook</a></li>
+        {% endif %}
         <li><a href="{{ 'blog/rss'|page }}">RSS Feed</a></li>
     </ul>
 </div>
